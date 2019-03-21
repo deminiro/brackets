@@ -80,8 +80,6 @@ module.exports = function check(str, bracketsConfig) {
              ||as[0] === devide2[1] || as[0] === devide4[1]
              ||as[0] === devide5[1] || as[0] === devide6[1]){
                return false;
-      }else if(){
-        return false;
       }
       else if(as.length === 0){
         break;
