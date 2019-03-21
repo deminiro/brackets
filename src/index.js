@@ -1,6 +1,6 @@
 module.exports = function check(str, bracketsConfig) {
   // your solution
-   const devide0 = ['(', ')'];
+  const devide0 = ['(', ')'];
   const devide1 = ['{', '}'];
   const devide2 = ['[', ']'];
   const devide3 = ['|', '|'];
@@ -86,8 +86,7 @@ module.exports = function check(str, bracketsConfig) {
       else if(as.length === 0){
         break;
       }
-            
-    }
+     }
     return true;
   }else{
   return false;
