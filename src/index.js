@@ -1,155 +1,129 @@
 module.exports = function check(str, bracketsConfig) {
   // your solution
-  const devide0 = ['(', ')'];
-  const devide1 = ['{', '}'];
-  const devide2 = ['[', ']'];
-  const devide3 = ['|', '|'];
-  const devide4 = ['1', '2'];
-  const devide5 = ['3', '4'];
-  const devide6 = ['5', '6'];
-  const devide7 = ['7', '7'];
-  const devide8 = ['8', '8'];
-  let stack = [];
+  const left = ['(','{','[','|','1','3','5','7','8'];
+  const right = [')','}',']','|','2','4','6','7','8'];
   let as = str.split('');
-  if(as.length%2 === 0){
-    for(i=0;i<=as.length;i++){
-      if(as[0] === devide0[0]){
-         start = as.slice();
-        stack.push(as[0]);
-        const inds = start.lastIndexOf(devide0[1],);
+  const copy = as.slice();
+  let stack = [];
+  if(as.length % 2 === 0){
+  for(i=0;i<as.length;i++){
+    if(copy[0] === left[0] || copy[0] === left[1] || copy[0] === left[2] ||
+       copy[0] === left[3] || copy[0] === left[4] || copy[0] === left[5] ||
+       copy[0] === left[6] || copy[0] === left[7] || copy[0] === left[8]){
+    if(as[0] === left[0]){
+      stack.push(as[0]);
+      as.shift();
+      }
+    if(as[0] === right[0]){
+      const pr = stack.pop();
+      if(pr === left[0]){
         as.shift();
-        const ind = as.indexOf(devide0[1],[fromIndex = 0]);
-        const copy = start.slice(1,inds);
-        if(copy.length % 2 !== 0){
-          return false;
         }else{
-        stack.push(as[ind]);
-        as.splice(ind,1);
+          return false;
         }
+    }
+    if(as[0] === left[1]){
+      stack.push(as[0]);
+      as.shift();
       }
-      if(as[0] === devide1[0]){
-        const start = as.slice();
+      if(as[0] === right[1]){
+        const pr = stack.pop();
+        if(pr === left[1]){
+          as.shift();
+          }else{
+            return false;
+          }
+      }
+    if(as[0] === left[2]){
+      stack.push(as[0]);
+      as.shift();
+      }
+      if(as[0] === right[2]){
+        const pr = stack.pop();
+        if(pr === left[2]){
+          as.shift();
+          }else{
+            return false;
+          }
+      }
+      if(as[0] === left[3] && stack.indexOf(left[3]) === -1){
         stack.push(as[0]);
-        const inds = start.lastIndexOf(devide1[1],);
         as.shift();
-        const ind = as.indexOf(devide1[1],[fromIndex = 0]);
-        const copy = start.slice(1,inds);
-        if(copy.length % 2 !== 0){
-          return false;
-        }else{
-        stack.push(as[ind]);
-        as.splice(ind,1);
-        }
       }
-      if(as[0] === devide2[0]){
-        const start = as.slice();
+      if(as[0] === right[3]){
+        const pr = stack.pop();
+        if(pr === left[3]){
+          as.shift();
+          }else{
+            return false;
+          }
+      }
+      if(as[0] === left[4]){
         stack.push(as[0]);
-        const inds = start.lastIndexOf(devide2[1],);
         as.shift();
-        const ind = as.indexOf(devide2[1],[fromIndex = 0]);
-        const copy = start.slice(1,inds);
-        if(copy.length % 2 !== 0){
-          return false;
-        }else{
-        stack.push(as[ind]);
-        as.splice(ind,1);
-        }
+      }      
+      if(as[0] === right[4]){
+        const pr = stack.pop();
+        if(pr === left[4]){
+          as.shift();
+          }else{
+            return false;
+          }
       }
-      if(as[0] === devide3[0]){
-        const start = as.slice();
+      if(as[0] === left[5]){
         stack.push(as[0]);
-        const inds = start.lastIndexOf(devide3[1],);
         as.shift();
-        const ind = as.indexOf(devide3[1],[fromIndex = 0]);
-        const copy = start.slice(1,inds);
-        if(copy.length % 2 !== 0){
-          return false;
-        }else{
-        stack.push(as[ind]);
-        as.splice(ind,1);
-        }
       }
-      if(as[0] === devide4[0]){
-        const start = as.slice();
+      if(as[0] === right[5]){
+        const pr = stack.pop();
+        if(pr === left[5]){
+          as.shift();
+          }else{
+            return false;
+          }
+      }
+      if(as[0] === left[6]){
         stack.push(as[0]);
-        const inds = start.lastIndexOf(devide4[1],);
         as.shift();
-        const ind = as.indexOf(devide4[1],[fromIndex = 0]);
-        const copy = start.slice(1,inds);
-        if(copy.length % 2 !== 0){
-          return false;
-        }else{
-        stack.push(as[ind]);
-        as.splice(ind,1);
-        }
       }
-      if(as[0] === devide5[0]){
-        const start = as.slice();
+      if(as[0] === right[6]){
+        const pr = stack.pop();
+        if(pr === left[6]){
+          as.shift();
+          }else{
+            return false;
+          }
+      }
+      if(as[0] === left[7]  && stack.indexOf(left[7]) === -1){
         stack.push(as[0]);
-        const inds = start.lastIndexOf(devide5[1],);
         as.shift();
-        const ind = as.indexOf(devide5[1],[fromIndex = 0]);
-        const copy = start.slice(1,inds);
-        if(copy.length % 2 !== 0){
-          return false;
-        }else{
-        stack.push(as[ind]);
-        as.splice(ind,1);
-        }
       }
-      if(as[0] === devide6[0]){
-        const start = as.slice();
+      if(as[0] === right[7]){
+        const pr = stack.pop();
+        if(pr === left[7]){
+          as.shift();
+          }else{
+            return false;
+          }
+      }
+      if(as[0] === left[8]  && stack.indexOf(left[8]) === -1){
         stack.push(as[0]);
-        const inds = start.lastIndexOf(devide6[1],);
         as.shift();
-        const ind = as.indexOf(devide6[1],[fromIndex = 0]);
-        const copy = start.slice(1,inds);
-        if(copy.length % 2 !== 0){
-          return false;
-        }else{
-        stack.push(as[ind]);
-        as.splice(ind,1);
-        }
       }
-      if(as[0] === devide7[0]){
-        const start = as.slice();
-        stack.push(as[0]);
-        const inds = start.lastIndexOf(devide7[1],);
-        as.shift();
-        const ind = as.indexOf(devide7[1],[fromIndex = 0]);
-        const copy = start.slice(1,inds);
-        if(copy.length % 2 !== 0){
-          return false;
-        }else{
-        stack.push(as[ind]);
-        as.splice(ind,1);
-        }
+      if(as[0] === right[8]){
+        const pr = stack.pop();
+        if(pr === left[8]){
+          as.shift();
+          }else{
+            return false;
+          }
       }
-      if(as[0] === devide8[0]){
-        const start = as.slice();
-        stack.push(as[0]);
-        const inds = start.lastIndexOf(devide8[1],);
-        as.shift();
-        const ind = as.indexOf(devide8[1],[fromIndex = 0]);
-        const copy = start.slice(1,inds);
-        if(copy.length % 2 !== 0){
-          return false;
-        }else{
-        stack.push(as[ind]);
-        as.splice(ind,1);
-        }
-      }
-      else if( as[0] === devide0[1] || as[0] === devide1[1] 
-             ||as[0] === devide2[1] || as[0] === devide4[1]
-             ||as[0] === devide5[1] || as[0] === devide6[1]){
-               return false;
-      }
-      else if(as.length === 0){
-        break;
-      }
-     }
-    return true;
-  }else{
-  return false;
+   }else{
+    return false;
   }
+}
+return true;
+}else{
+  return false;
+}
 }
